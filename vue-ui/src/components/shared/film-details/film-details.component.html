@@ -1,0 +1,15 @@
+<div class="film-details">
+    <b-link :to="{ path: '/' }" class="search">
+        <b-icon icon="search"></b-icon>
+    </b-link>
+    <div class="info">
+        <div class="img-wrapper">
+            <img :src="filmId.poster_path" alt="Film" />
+        </div>
+        <div class="describe">
+            <Rating />
+            <Duration />
+            <p>{{ filmId.overview }}</p>
+        </div>
+    </div>
+</div>

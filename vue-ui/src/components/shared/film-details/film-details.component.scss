@@ -1,0 +1,54 @@
+.film-details {
+    color: #FFF;
+    background: linear-gradient( rgba(102, 96, 96, 0.8), rgba(102, 96, 96, 0.8) ), url("../../../assets/Header.jpg");
+    padding: 15px 5%;
+    min-height: 360px;
+
+    .search {
+        display: flex;
+        justify-content: flex-end;
+
+        svg {
+            font-size: 30px;
+            color: #F65261;
+            transform: rotateZ(90deg);
+            margin: 10px 10px -10px 0;
+
+            &:hover {
+                color: green;
+            }
+        }
+    }
+
+    .info {
+        .img-wrapper {
+            height: 300px;
+            width: 230px;
+            float: left;
+            margin-right: 30px;
+            background: {
+                image: url('../../../assets/logo.png');
+                position: center;
+                repeat: no-repeat;
+            };
+    
+            img {
+                height: 300px;
+                width: 230px;
+                margin-bottom: 15px;
+            }
+        }
+    
+        .describe {
+            margin: 15px 40px 15px 0;
+    
+            div {
+                margin-bottom: 20px;
+            }
+    
+            p {
+                text-align: start;
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+<FormulateForm v-model="formValues"
+               @submit="handleSubmit"
+               @input="performValidation"
+               ref="form">
+    <FormulateInput type="number"
+                    name="id"
+                    label="Movie id"
+                    disabled
+                    v-if="showId"
+                    validation="required|matches:/^\d+$/" />
+    <FormulateInput type="text"
+                    name="title"
+                    label="Title"
+                    placeholder="Title"
+                    validation="required" />
+    <FormulateInput type="date"
+                    name="date"
+                    label="Release date"
+                    placeholder="Select Date"
+                    validation="required" />
+    <FormulateInput type="url"
+                    name="url"
+                    label="Movie url"
+                    placeholder="Movie URL here"
+                    validation="url" />
+    <div class="formulate-input">
+        <label class="typo__label">Genre</label>
+        <Multiselect v-model="value"
+                     tag-placeholder="Add this as new tag"
+                     placeholder="Select genre"
+                     label="name"
+                     track-by="code"
+                     :options="options"
+                     :multiple="true"
+                     :taggable="true"
+                     @input="performValidation"
+                     @close="onTouch" />
+        <p class="formulate-input-error" v-show="isInvalid">Must have at least one value</p>
+    </div>
+
+    <FormulateInput type="text"
+                    name="overview"
+                    label="Overview"
+                    placeholder="Overview here"
+                    validation="required" />
+    <FormulateInput type="number"
+                    name="runtime"
+                    label="Runtime"
+                    min="1"
+                    placeholder="Runtime here"
+                    validation="matches:/^\d+$/" />
+    <div class="buttons">
+        <FormulateInput type="button" :label="btnLeft" @click="handleReset"/>
+        <FormulateInput type="submit" :label="btnRight" :disabled="hasErrors"/>
+    </div>
+</FormulateForm>

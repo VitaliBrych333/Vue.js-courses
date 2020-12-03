@@ -1,0 +1,21 @@
+.details {
+    display: flex;
+    flex-direction: column;
+
+    .sort {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        height: 59px;
+        background-color: #555;
+    }
+    
+    .count {
+        display: flex;
+        padding: 7px 9%;
+        background-color: #555;
+        height: 40px;
+        font-size: 17px;
+        color: #FFF;
+    }
+}

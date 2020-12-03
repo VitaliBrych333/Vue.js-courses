@@ -1,0 +1,17 @@
+.name-window {
+    width: 380px;
+
+    h2 {
+        text-transform: uppercase;
+    }
+
+    button {
+        font-size: 40px;
+        color: #FFF;
+        margin-top: -20px;
+
+        :hover {
+            color: #F65261
+        }
+    }
+}

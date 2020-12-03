@@ -1,0 +1,29 @@
+.incorrect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 250px auto 0;
+    width: 370px;
+    color: #FFF;
+
+    a {
+        width: 200px;
+        margin: 0 auto;
+
+        button {
+            width: 200px;
+            text-transform: uppercase;
+        }
+    }
+
+    p {
+        font-size: 50px;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    span {
+        font-size: 170px;
+        text-align: center;
+    }
+}

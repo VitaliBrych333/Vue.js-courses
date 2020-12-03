@@ -1,0 +1,20 @@
+.search {
+    width: 60%;
+    margin: -70px auto 0;
+
+    h1 {
+        color: #FFF;
+        text-transform: uppercase;
+        text-align: left;
+    }
+
+    .form {
+        display: flex;
+
+        .btn {
+            margin-left: 25px;
+            text-transform: uppercase;
+            border-color: #F65261; 
+        }
+    }
+}

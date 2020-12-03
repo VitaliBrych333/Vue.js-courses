@@ -1,0 +1,68 @@
+.item {
+    margin: 15px 20px;
+
+    .mb-2 {
+        width: 230px;
+        border: none;
+    }
+
+    svg {
+        position: absolute;
+        color: #FFF;
+        background-color: #555;
+        border-radius: 50%;
+        margin: 10px 185px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .img-wrapper {
+        height: 300px;
+        width: 230px;
+        background: {
+            image: url('../../../assets/logo.png');
+            position: center;
+            repeat: no-repeat;
+        };
+
+        img {
+            height: 300px;
+            width: 230px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .card-body {
+        text-align: left;
+        background-color: #232323;
+        padding: 0;
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            .title {
+                font-size: 16px;
+                color: #FFF;
+            }
+
+            span {
+                display: inline-table;
+                margin-top: 3px;
+                font-size: 17px;
+                margin-left: 3px;
+                background-color: #232323;
+                border: 1px solid #FFF;
+            }
+        }
+
+        .genre {
+            margin-right: 7px;
+            color: #FFF;
+            font-size: 14px;
+        }
+    }
+}

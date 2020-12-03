@@ -1,0 +1,20 @@
+.btn-secondary:not(:disabled):not(.disabled) {
+    background-color: #424242;
+
+    &.active {
+        background-color: #F65261;
+        border-color: #F65261;
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba(214, 11, 55, 0.5);
+        }
+    }
+
+    &:hover {
+        background-color: #F65261;
+    }
+}
+
+.toast-body {
+    padding: 5px;
+}

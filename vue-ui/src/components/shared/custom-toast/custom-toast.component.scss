@@ -1,0 +1,16 @@
+.custom-toast {
+    width: 120px;
+    position: absolute;
+    margin-left: 111px;
+
+    p {
+        margin: 3px;
+        font-size: 16px;
+        color: #555;
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}

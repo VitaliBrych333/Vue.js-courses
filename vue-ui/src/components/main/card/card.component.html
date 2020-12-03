@@ -1,0 +1,21 @@
+<div class="item">
+    <CustomToast :info="info"/>
+    <b-card class="mb-2">
+        <b-icon icon="three-dots-vertical"
+                font-scale="2"
+                v-show="show"
+                @click="onClick"
+                @mouseenter="showDots" />
+        <div class="img-wrapper">
+            <img :src="info.poster_path"
+                 alt="Image"
+                 @mouseenter="showDots"
+                 @mouseleave="hideDots" />
+        </div>
+        <div>
+            <b-link :to="{ path: `/movies/${info.id}` }" class="title">{{ info.title }}</b-link>
+            <b-badge>{{ info.release_date.trim().slice(0, 4) }}</b-badge>
+        </div>
+        <b-link v-for="genre in info.genres" @click="filterByGenre" class="genre">{{ genre }}</b-link>
+    </b-card>
+</div>

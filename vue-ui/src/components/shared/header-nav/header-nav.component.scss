@@ -1,0 +1,19 @@
+.header-nav {
+    .sort {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        height: 59px;
+        background-color: #555;
+        padding: 3px 0 0;
+    }
+
+    .count {
+        display: flex;
+        padding: 7px 9%;
+        background-color: #555;
+        height: 40px;
+        color: #FFF;
+        font-size: 17px;
+    }
+}

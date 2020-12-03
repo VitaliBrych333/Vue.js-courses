@@ -1,0 +1,36 @@
+.formulate-input[data-classification='text'] input, .formulate-input[data-classification='select'] select {
+    background-color: #424242;
+    color: #FFF;
+    width: 360px;
+    font-size: 15px;
+}
+
+.formulate-input[data-classification='button'] button {
+    display: inline-block;
+
+    &[disabled] {
+        background-color: #6c757d;
+        opacity: .65;
+    }
+}
+
+.formulate-input[data-classification='select'] {
+    & select option {
+        color: #FFF;
+    }
+
+    & .formulate-input-element::before {
+        border-top-color: #F65261;
+        right: -1em;
+    }
+} 
+
+.formulate-input .formulate-input-label {
+    text-align: left;
+    font-size: 17px;
+    color: #F65261;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(100%) brightness(50%) sepia(50%) saturate(10000%);
+}

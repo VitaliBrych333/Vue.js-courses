@@ -1,0 +1,78 @@
+.formulate-form {
+    div {
+        margin-bottom: 7px;
+    }
+
+    ::placeholder {
+        color: #FFF;
+        opacity: 1;
+    }
+
+    label {
+        width: 100%;
+        text-align: left;
+        font: {
+            size: 17px;
+            weight: 600;
+            family: sans-serif;
+        }
+        color: #F65261;
+    }
+
+    .formulate-input-error {
+        color: #F65261;
+        font: {
+            size: 14px;
+            weight: bold;
+        }
+    }
+
+    .multiselect {
+        width: 360px;
+
+        .multiselect__select:before {
+            border-color: #F65261 transparent transparent;
+        }
+
+        .multiselect__tags {
+            background-color: #424242;
+            font-size: 15px;
+
+            &:focus-within{
+                border: 1px solid #20c997;
+            }
+
+            .multiselect__input {
+                background-color: #424242;
+            }
+
+            .multiselect__tag {
+                background-color: #F65261;
+            }
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px 0 0 178px;
+
+        button {
+            padding: 10px;
+            height: 41px;
+            background-color: #424242;
+            border: 1px solid #F65261;
+            text-transform: uppercase;
+            margin-right: 23px;
+            font: {
+                size: 16px;
+                family: sans-serif;
+                weight: 100;
+            }
+
+            &:hover {
+                background-color: #F65261;
+            }
+        }
+    }
+}

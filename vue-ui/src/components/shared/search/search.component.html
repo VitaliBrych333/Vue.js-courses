@@ -1,0 +1,13 @@
+<div class="search">
+    <h1>Find your movie</h1>
+    <b-form @submit="onSubmit" class="form">
+        <b-form-input
+            id="input-1"
+            v-model="form.value"
+            type="text"
+            required
+            placeholder="Enter film name">
+        </b-form-input>
+        <b-button type="submit" :disabled="validate()">Search</b-button>
+    </b-form>
+</div>

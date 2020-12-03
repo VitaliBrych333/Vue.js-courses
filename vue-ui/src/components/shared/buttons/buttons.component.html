@@ -1,0 +1,7 @@
+<div class="buttons"> 
+    <p>{{ type }}</p>
+    <b-button-group>
+        <b-button v-bind:class="{active: isActive === btnLeft}" @click="onClick">{{ btnLeft }}</b-button>
+        <b-button v-bind:class="{active: isActive === btnRight}" @click="onClick">{{ btnRight }}</b-button>
+    </b-button-group>
+</div>

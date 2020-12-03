@@ -1,0 +1,10 @@
+<div class="search-results">
+    <EditWindow v-if="isShowEditPage" />
+    <DeleteWindow v-if="isShowDeletePage" />
+    <div class="main" v-if="filmsCriteria && totalFilmsCriteria > 0" >
+        <Card :info="film" v-for="film in filmsCriteria" :key="film.id" />
+    </div>
+    <div class="empty" v-else-if="filmsCriteria && totalFilmsCriteria === 0">
+        <NotFound/>
+    </div>
+</div>

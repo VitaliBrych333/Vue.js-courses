@@ -1,0 +1,14 @@
+.search-results {
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 30px 50px;
+    }
+
+    .empty {
+        color: #FFF;
+        font-size: 32px;
+        margin-top: 200px;
+    }
+}

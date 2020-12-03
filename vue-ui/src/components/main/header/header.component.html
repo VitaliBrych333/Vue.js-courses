@@ -1,0 +1,8 @@
+<div class="header">
+    <div class="add">
+        <b-button @click="onClick">+ Add movie</b-button>
+    </div>
+    <Search />
+    <HeaderNav type="Sort by" btnLeft="Release date" btnRight="Rating" />
+    <AddWindow v-if="isShowAddPage"/>
+</div>
