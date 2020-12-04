@@ -14,7 +14,7 @@
         </div>
         <div>
             <b-link :to="{ path: `/movies/${info.id}` }" class="title">{{ info.title }}</b-link>
-            <b-badge>{{ info.release_date.trim().slice(0, 4) }}</b-badge>
+            <b-badge>{{ info.release_date | getYear }}</b-badge>
         </div>
         <b-link v-for="genre in info.genres" @click="filterByGenre" class="genre">{{ genre }}</b-link>
     </b-card>

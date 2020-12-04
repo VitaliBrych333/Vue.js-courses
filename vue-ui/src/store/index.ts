@@ -1,27 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+
+import { Film, Films } from '@/components/interfaces/interfaces'
 
 Vue.use(Vuex)
-
-interface Film {
-  id: number,
-  title: string,
-  tagline: string,
-  vote_average: number,
-  vote_count: number,
-  release_date: string,
-  poster_path: string,
-  overview: string,
-  budget: number,
-  revenue: number,
-  genres: Array<string>,
-  runtime: number
-};
-
-interface Films {
-  data: Array<Film> | null,
-  totalAmount: number  
-};
 
 const sortBy = (value: string, data: Array<Film>) => {
   let sortData: Array<Film> = [];
@@ -47,6 +30,7 @@ export default new Vuex.Store({
     movies: { data: [], totalAmount: 0 },
     moviesByCriteria: { data: null , totalAmount: 0 } as Films,
     filmId: {},
+    search: '',
     sort: 'release_date',
     genre: 'All',
     loading: false,
@@ -76,6 +60,9 @@ export default new Vuex.Store({
     filmId(state) {
       return state.filmId;
     },
+    search(state) {
+      return state.search;
+    },
     sortBy(state) {
       return state.sort;
     },
@@ -100,6 +87,21 @@ export default new Vuex.Store({
     FETCH_MOVIES_SUCCESS(state, { newMovies, newMoviesByCriteria }) {
       state.movies = newMovies;
       state.moviesByCriteria = newMoviesByCriteria;
+      // state.movies.data = [ ...state.movies.data, ...newMovies.data as []];
+      // state.movies.totalAmount = newMovies.totalAmount;
+      // state.moviesByCriteria.data = [ ...state.movies.data, ...newMoviesByCriteria.data as []];
+      // state.moviesByCriteria.totalAmount = newMoviesByCriteria.totalAmount;
+    },
+    FETCH_MOVIES_MORE(state, { newMovies, newMoviesByCriteria }) {
+      // state.movies = newMovies;
+      // state.moviesByCriteria = newMoviesByCriteria;
+
+      console.log('1111111111111111111111', state.movies.data)
+      console.log('22222222222', newMovies.data)
+      state.movies.data = [ ...state.movies.data, ...newMovies.data as []];
+      state.movies.totalAmount = newMovies.totalAmount;
+      state.moviesByCriteria.data = [ ...state.movies.data, ...newMoviesByCriteria.data as []];
+      state.moviesByCriteria.totalAmount = newMoviesByCriteria.totalAmount;
     },
     FETCH_MOVIES_FAILURE(state, error) {
       state.movies = { data: [], totalAmount: 0 };
@@ -118,6 +120,9 @@ export default new Vuex.Store({
       state.loading = false;
       state.error = error;
       state.filmId = {};
+    },
+    SET_SEARCH(state, value) {
+      state.search = value;
     },
     SORT(state, value) {
       let typeSort = '';
@@ -186,87 +191,69 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    FETCH_MOVIES({ commit }, { sortBy, search}) {
-      const request = `http://localhost:4000/movies?sortBy=${sortBy}&sortOrder=desc&search=${search}&searchBy=title`;
+    FETCH_MOVIES({ commit }, { sortBy, search, offset }) {
       commit('FETCH_MOVIES_BEGIN');
 
-      return fetch(request)
-        .then((res) => res.json())
-        .then((json) => {
-          commit('FETCH_MOVIES_SUCCESS', { newMovies: json, newMoviesByCriteria: json });
+      return axios.get(`movies?sortBy=${sortBy}&sortOrder=desc&search=${search}&searchBy=title&offset=${offset}`)
+        .then((res) => {
+          commit('FETCH_MOVIES_SUCCESS', { newMovies: res.data, newMoviesByCriteria: res.data });
           commit('SET_GENRE','All');
-          return json;
+          commit('SET_SEARCH', search);
         })
-        .catch((error) => commit('FETCH_MOVIES_FAILURE', error));
+        .catch((err) => commit('FETCH_MOVIES_FAILURE', err));
+    },
+    DOWNLOAD_MORE({ commit, state }, { offset }) {
+      commit('FETCH_MOVIES_BEGIN');
+
+      return axios.get(`movies?sortBy=${state.sort}&sortOrder=desc&search=${state.search}&searchBy=title&offset=${offset}`)
+        .then((res) => {
+          commit('FETCH_MOVIES_MORE', { newMovies: res.data, newMoviesByCriteria: res.data });
+          // commit('SET_GENRE','All');
+          // commit('SET_SEARCH', search);
+        })
+        .catch((err) => commit('FETCH_MOVIES_FAILURE', err));
     },
     DELETE_MOVIE({ commit }, { id, newMovies, newMoviesByCriteria }) {
-      const request = `http://localhost:4000/movies/${id}`;
-
-      return fetch(request, { method: 'DELETE' })
+      return axios.delete(`movies/${id}`)
         .then((res) => {
-          if (!res.ok) {
-            throw new Error();
-          } else {
-            commit('FETCH_MOVIES_SUCCESS', { newMovies, newMoviesByCriteria });
-            commit('SHOW_DELETE_PAGE', false)
-            return res;
-          }
+          commit('FETCH_MOVIES_SUCCESS', { newMovies, newMoviesByCriteria });
+          commit('SHOW_DELETE_PAGE', false)
         })
-        .catch((error) => error);
+        .catch((err) => err);
     },
     ADD_MOVIE({ commit }, movie) {
-      const request = 'http://localhost:4000/movies';
-
-      return fetch(request, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(movie)})
+      return axios.post('movies', JSON.stringify(movie))
         .then((res) => {
-          if (!res.ok) {
-            throw new Error();
-          } else {
-            commit('SHOW_ADD_PAGE', false)
-            return res.json();
-          }
+          commit('SHOW_ADD_PAGE', false)
         })
-        .catch((error) => error);
+        .catch((err) => err);
     },
     UPDATE_MOVIE({ commit }, { movie, newMoviesByCriteria, newMovies }) {
-      const request = 'http://localhost:4000/movies';
-
-      return fetch(request, {method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(movie)})
+      return axios.put('movies', JSON.stringify(movie))
         .then((res) => {
-          if (!res.ok) {
-            throw new Error();
-          } else {
-            commit('FETCH_MOVIES_SUCCESS', { newMovies, newMoviesByCriteria });
-            commit('SHOW_EDIT_PAGE', false)
-            return res.json();
-          }
+          commit('FETCH_MOVIES_SUCCESS', { newMovies, newMoviesByCriteria });
+          commit('SHOW_EDIT_PAGE', false)
         })
-        .catch((error) => error);
+        .catch((err) => err);
     },
     FETCH_MOVIES_BY_GENRE({ commit }, { sortBy, filterValue }) {
-      const request = `http://localhost:4000/movies?sortBy=${sortBy}&sortOrder=desc&searchBy=genres&filter=${filterValue}`;
       commit('FETCH_MOVIES_BEGIN');
 
-      return fetch(request)
-        .then((res) => res.json())
-        .then((json) => {
-          commit('FETCH_MOVIES_SUCCESS', { newMovies: json, newMoviesByCriteria: json });
+      return axios.get(`movies?sortBy=${sortBy}&sortOrder=desc&searchBy=genres&filter=${filterValue}`)
+        .then((res) => {
+          commit('FETCH_MOVIES_SUCCESS', { newMovies: res.data, newMoviesByCriteria: res.data });
           commit('SET_GENRE','All');
-          return json;
         })
-        .catch((error) => commit('FETCH_MOVIES_FAILURE', error));
+        .catch((err) => commit('FETCH_MOVIES_FAILURE', err));
     },
     FETCH_MOVIE_ID({ commit }, id) {
-      const request = `http://localhost:4000/movies/${id}`;
       commit('FETCH_FILMID_BEGIN');
 
-      return fetch(request)
-        .then((res) => res.json())
-        .then((json) => {
-          commit('FETCH_FILMID_SUCCESS', json);
-          return json;
+      return axios.get(`movies/${id}`)
+        .then((res) => {
+          commit('FETCH_FILMID_SUCCESS', res.data);
         })
-        .catch((error) => commit('FETCH_FILMID_FAILURE', error));
+        .catch((err) => commit('FETCH_FILMID_FAILURE', err));
     }
   },
   modules: {}

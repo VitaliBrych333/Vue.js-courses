@@ -1,8 +1,8 @@
 <div class="film-duration"> 
-    <p>
-        <span>{{ date }}</span> year
+    <p v-show="filmId.release_date">
+        <span>{{ filmId.release_date | getYear }}</span> year
     </p>
-    <p>
+    <p v-show="filmId.runtime">
         <span>{{ filmId.runtime }}</span> min
     </p>
 </div>

@@ -3,7 +3,8 @@ import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 import { mapGetters } from 'vuex'
 import CustomToast from '@/components/shared/custom-toast/custom-toast.component.vue'
-import { BToast, Film } from '@/components/shared/interfaces/interfaces'
+import { BToast, Film } from '@/components/interfaces/interfaces'
+import getYear from '@/components/filters/filters'
 
 @Component({
   components: {
@@ -11,6 +12,9 @@ import { BToast, Film } from '@/components/shared/interfaces/interfaces'
   },
   computed: {
     ...mapGetters(['filmEdit', 'sortBy'])
+  },
+  filters: {
+    getYear
   }
 })
 export default class CardComponent extends Vue {

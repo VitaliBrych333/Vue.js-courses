@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { mapGetters } from 'vuex'
 import NameWindow from '@/components/shared/name-window/name-window.component.vue'
-import { Film } from '@/components/shared/interfaces/interfaces'
+import { Film } from '@/components/interfaces/interfaces'
 
 const updateFilms = (films: Array<Film>, total: number, id: number) => {
   const newValueMovies = {

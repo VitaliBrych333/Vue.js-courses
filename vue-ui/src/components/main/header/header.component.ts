@@ -5,7 +5,7 @@ import { mapGetters } from 'vuex'
 import Search from '@/components/shared/search/search.component.vue'
 import HeaderNav from '@/components/shared/header-nav/header-nav.component.vue'
 import AddWindow from '@/components/main/add-window/add-window.component.vue'
-import { BToast, Film } from '@/components/shared/interfaces/interfaces'
+import { BToast, Film } from '@/components/interfaces/interfaces'
 
 @Component({
   components: {

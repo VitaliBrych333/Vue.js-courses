@@ -3,8 +3,8 @@ import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 import Multiselect from 'vue-multiselect'
 import { mapGetters } from 'vuex'
-import selectOptions from '@/components/shared/interfaces/select-options'
-import { FilmForm, Film, Genres, MovieRequest } from '@/components/shared/interfaces/interfaces'
+import selectOptions from '@/components/interfaces/select-options'
+import { FilmForm, Film, Genres, MovieRequest } from '@/components/interfaces/interfaces'
 
 const updateFilms = (films: Array<Film>, editFilm: MovieRequest) => {
   const objMovies = JSON.parse(JSON.stringify(films));

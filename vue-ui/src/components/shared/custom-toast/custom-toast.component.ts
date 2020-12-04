@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
-import { BToast, Film } from '@/components/shared/interfaces/interfaces'
+import { BToast, Film } from '@/components/interfaces/interfaces'
 
 @Component({})
 export default class CustomToastComponent extends Vue {

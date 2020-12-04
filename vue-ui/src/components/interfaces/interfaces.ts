@@ -27,6 +27,11 @@ export interface FilmForm {
   runtime: number | null
 };
 
+export interface Films {
+  data: Array<Film> | null,
+  totalAmount: number  
+};
+
 export interface Genres {
   code: string,
   name: string
