@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import Vue from 'vue'
+import Component from 'vue-class-component'
 import FilmDetails from '@/components/shared/film-details/film-details.component.vue'
 import HeaderNav from '@/components/shared/header-nav/header-nav.component.vue'
 import SearchResults from '@/components/shared/search-results/search-results.component.vue'
@@ -11,7 +11,4 @@ import SearchResults from '@/components/shared/search-results/search-results.com
     SearchResults
   }
 })
-export default class DetailsComponent extends Vue {
-
-}
-
+export default class DetailsComponent extends Vue {}

@@ -7,14 +7,17 @@ import { BToast, Film } from '@/components/interfaces/interfaces'
 export default class CustomToastComponent extends Vue {
   @Prop(Object) readonly info!: Film
 
-  private $bvToast!: BToast;
-  private toastId!: string;
+  private $bvToast!: BToast
+  private toastId!: string
 
   public onClick(event: Event): void {
-    const value = (event.target as HTMLButtonElement).textContent;
+    const value = (event.target as HTMLButtonElement).textContent
     if (value) {
-      this.$bvToast.hide(this.toastId);
-      this.$store.commit('SET_EDIT_FILM', { filmEdit: this.info, actionType: value });
+      this.$bvToast.hide(this.toastId)
+      this.$store.commit('window/SET_EDIT_FILM', {
+        filmEdit: this.info,
+        actionType: value
+      })
     }
   }
 
@@ -22,4 +25,3 @@ export default class CustomToastComponent extends Vue {
     this.toastId = this.info.id.toString()
   }
 }
-

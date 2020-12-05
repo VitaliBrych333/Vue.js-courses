@@ -1,7 +1,7 @@
 <div class="buttons"> 
-    <p>{{ type }}</p>
+    <p>Sort by</p>
     <b-button-group>
-        <b-button v-bind:class="{active: isActive === btnLeft}" @click="onClick">{{ btnLeft }}</b-button>
-        <b-button v-bind:class="{active: isActive === btnRight}" @click="onClick">{{ btnRight }}</b-button>
+        <b-button v-bind:class="{active: sortBy === 'release_date'}" @click="onClick">Release date</b-button>
+        <b-button v-bind:class="{active: sortBy === 'vote_average'}" @click="onClick">Rating</b-button>
     </b-button-group>
 </div>

@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import { Form } from '@/components/interfaces/interfaces'
 
 @Component({
   computed: {
-    ...mapGetters(['sortBy'])
+    ...mapState('movie', ['sortBy'])
   }
 })
 export default class SearchComponent extends Vue {
@@ -15,20 +15,21 @@ export default class SearchComponent extends Vue {
   public data(): object {
     return {
       form: {
-        value: '',
-      },
+        value: ''
+      }
     }
   }
-created() {
-  console.log('render')
-}
+
   private validate(): boolean {
-    return this.form.value.trim() === '';
+    return this.form.value.trim() === ''
   }
 
   private onSubmit(event: Event): void {
     event.preventDefault()
-    // this.$store.commit('SET_SEARCH', this.form.value)
-    this.$store.dispatch('FETCH_MOVIES', { sortBy: this.sortBy, search: this.form.value, offset: 0 })
+    this.$store.dispatch('movie/FETCH_MOVIES', {
+      sortBy: this.sortBy,
+      search: this.form.value,
+      offset: 0
+    })
   }
 }

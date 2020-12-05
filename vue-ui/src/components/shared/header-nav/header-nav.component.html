@@ -1,9 +1,9 @@
 <div class="header-nav"> 
     <div class="sort">
         <CustomNav />
-        <Buttons :type="type" :btnLeft="btnLeft" :btnRight="btnRight" />
+        <Buttons />
     </div>
-    <div class="count" v-if="totalFilmsCriteria > 0">
-        <p>{{ totalFilmsCriteria }} movie found</p>
+    <div class="count" v-if="moviesByCriteria.totalAmount > 0">
+        <p>{{ moviesByCriteria.totalAmount }} movie found</p>
     </div>
 </div>

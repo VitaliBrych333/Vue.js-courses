@@ -1,13 +1,13 @@
 <div class="search-results">
     <EditWindow v-if="isShowEditPage" />
     <DeleteWindow v-if="isShowDeletePage" />
-    <div class="main" v-if="filmsCriteria && totalFilmsCriteria > 0" ref="wrapper" >
+    <div class="main" v-if="moviesByCriteria.totalAmount > 0" ref="wrapper" >
         <Card :info="film"
-              v-for="film in filmsCriteria"
+              v-for="film in moviesByCriteria.data"
               :key="film.id" />
-        <Observer @intersect="intersected"/>
+        <Observer @intersect="intersected" />
     </div>
-    <div class="empty" v-else-if="filmsCriteria && totalFilmsCriteria === 0">
-        <NotFound/>
+    <div class="empty" v-else-if="moviesByCriteria.totalAmount === 0 && search" >
+        <NotFound />
     </div>
 </div>

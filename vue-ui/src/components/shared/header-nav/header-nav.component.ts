@@ -1,17 +1,17 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import Vue from 'vue'
+import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import Buttons from '@/components/shared/buttons/buttons.component.vue'
 import CustomNav from '@/components/shared/custom-nav/custom-nav.component.vue'
 
 @Component({
   components: {
     Buttons,
-    CustomNav,
+    CustomNav
   },
   computed: {
-    ...mapGetters(['totalFilmsCriteria'])
+    ...mapState('movie', ['moviesByCriteria'])
   }
 })
 export default class HeaderNavComponent extends Vue {

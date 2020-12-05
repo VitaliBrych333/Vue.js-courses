@@ -1,11 +1,12 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import { mapGetters } from 'vuex'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { mapState } from 'vuex'
 import Card from '@/components/main/card/card.component.vue'
 import NotFound from '@/components/shared/not-found/not-found.component.vue'
 import EditWindow from '@/components/main/edit-window/edit-window.component.vue'
 import DeleteWindow from '@/components/main/delete-window/delete-window.component.vue'
-import Observer from '@/components/shared/observer/observer.component.vue';
+import Observer from '@/components/shared/observer/observer.component.vue'
+import { Films } from '@/components/interfaces/interfaces'
 
 @Component({
   components: {
@@ -16,57 +17,48 @@ import Observer from '@/components/shared/observer/observer.component.vue';
     DeleteWindow
   },
   computed: {
-    ...mapGetters(['filmsCriteria', 'totalFilmsCriteria', 'isShowEditPage', 'isShowDeletePage', 'search', 'genre', 'sortBy'])
+    ...mapState('movie', [
+      'movies',
+      'moviesByCriteria',
+      'search',
+      'sortBy',
+      'genre'
+    ]),
+    ...mapState('window', ['isShowEditPage', 'isShowDeletePage'])
   }
 })
 export default class SearchResultsComponent extends Vue {
-  public totalFilmsCriteria!: number
-  public filmsCriteria!: any
+  private movies!: Films
+  private moviesByCriteria!: Films
+  private genre!: string
+  private sortBy!: string
+  private offset!: number
 
-  public offset!: number
-  public items!: any
-
-  public genre!: string
-  public sortBy!: string
-  public search!: string
-
-  public data(): object {
-    return {
-      offset: 10, items: []
+  public intersected(): void {
+    if (
+      this.genre === 'All' &&
+      this.movies.data.length % 10 === 0 &&
+      this.movies.data.length % 10 !== this.moviesByCriteria.totalAmount &&
+      this.sortBy !== 'vote_average'
+    ) {
+      this.offset = this.movies.data.length
+      this.$store.dispatch('movie/DOWNLOAD_MORE', this.offset)
+      this.offset += 10
     }
   }
-
-  async intersected() {
-    if (this.genre === 'All' && this.filmsCriteria.length !== this.totalFilmsCriteria) {
-      console.log('ffffffffffffffffffffffff', this.search)
-      this.$store.dispatch('DOWNLOAD_MORE', { offset: this.offset })
-      this.offset += 10;
-    }
-    
-    // const res = await fetch(`http://localhost:4000/movies?sortBy=${this.sortBy}&sortOrder=desc&search=king&limit=10&searchBy=title&offset=${
-    //   this.offset
-    // }`);
-    // this.offset += 10;
-    // const items = await res.json();
-    // console.log('2222222222222222222222222', this.items)
-    // this.items = [...this.items, ...items.data];
-  }
-
-  // public updated(): void {
-  //   if(!this.items.length) this.items = this.filmsCriteria;
-  //   console.log('updated', this.items, this.filmsCriteria)
-  // }
-
 
   public created(): void {
     const { search, sortBy, filter, searchBy } = this.$route.query
 
     if (sortBy && search) {
-      this.$store.dispatch('FETCH_MOVIES', { search, sortBy, offset: 0 })
+      this.$store.dispatch('movie/FETCH_MOVIES', { search, sortBy, offset: 0 })
     }
 
     if (sortBy && searchBy && filter) {
-      this.$store.dispatch('FETCH_MOVIES_BY_GENRE', { sortBy, filterValue: filter })
+      this.$store.dispatch('movie/FETCH_MOVIES_BY_GENRE', {
+        sortBy,
+        filterValue: filter
+      })
     }
   }
 }

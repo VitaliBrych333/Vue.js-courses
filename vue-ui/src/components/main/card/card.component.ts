@@ -1,7 +1,7 @@
-import Vue from 'vue';
+import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import CustomToast from '@/components/shared/custom-toast/custom-toast.component.vue'
 import { BToast, Film } from '@/components/interfaces/interfaces'
 import getYear from '@/components/filters/filters'
@@ -11,23 +11,27 @@ import getYear from '@/components/filters/filters'
     CustomToast
   },
   computed: {
-    ...mapGetters(['filmEdit', 'sortBy'])
+    ...mapState('movie', ['sortBy']),
+    ...mapState('window', ['filmEdit'])
   },
   filters: {
     getYear
   }
 })
 export default class CardComponent extends Vue {
-  private $bvToast!: BToast;
-  private filmEdit!: Film;
-  private sortBy!: string;
-  private show = false;
-
   @Prop(Object) readonly info!: Film
 
+  private $bvToast!: BToast
+  private filmEdit!: Film
+  private sortBy!: string
+  private show = false
+
   public filterByGenre(event: Event): void {
-    const value = (event.target as HTMLButtonElement).textContent;
-    this.$store.dispatch('FETCH_MOVIES_BY_GENRE', { sortBy: this.sortBy, filterValue: value });
+    const value = (event.target as HTMLButtonElement).textContent
+    this.$store.dispatch('movie/FETCH_MOVIES_BY_GENRE', {
+      sortBy: this.sortBy,
+      filterValue: value
+    })
   }
 
   public showDots(): void {
@@ -38,14 +42,16 @@ export default class CardComponent extends Vue {
     this.show = false
   }
 
-  public onClick(): void {
-    const prevIdEdit = this.filmEdit?.id.toString();
+  public hideToast(): void {
+    const prevIdEdit = this.filmEdit?.id.toString()
     if (prevIdEdit) {
-      this.$bvToast.hide(prevIdEdit);
+      this.$bvToast.hide(prevIdEdit)
     }
-    this.$store.commit('SET_EDIT_FILM', { filmEdit: this.info });
-    this.$bvToast.show(this.info.id.toString());
+  }
+
+  public onClick(): void {
+    this.$store.commit('window/SET_EDIT_FILM', { filmEdit: this.info })
+    this.$bvToast.show(this.info.id.toString())
     this.hideDots()
   }
 }
-

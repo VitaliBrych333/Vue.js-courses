@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import Vue from 'vue'
+import Component from 'vue-class-component'
 import NameWindow from '@/components/shared/name-window/name-window.component.vue'
 import FormComponent from '@/components/shared/form/form.component.vue'
 
@@ -9,7 +9,4 @@ import FormComponent from '@/components/shared/form/form.component.vue'
     FormComponent
   }
 })
-export default class EditWindowComponent extends Vue {
-
-}
-
+export default class EditWindowComponent extends Vue {}

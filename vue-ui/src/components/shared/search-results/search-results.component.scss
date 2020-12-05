@@ -1,7 +1,6 @@
 .search-results {
     .main {
         display: flex;
-        max-height: calc(100vh - 375px);
         flex-wrap: wrap;
         justify-content: center;
         overflow-y: auto;

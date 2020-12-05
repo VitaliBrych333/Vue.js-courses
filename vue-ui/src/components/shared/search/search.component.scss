@@ -4,8 +4,10 @@
 
     h1 {
         color: #FFF;
-        text-transform: uppercase;
-        text-align: left;
+        text: {
+            transform: uppercase;
+            align: left;
+        }
     }
 
     .form {

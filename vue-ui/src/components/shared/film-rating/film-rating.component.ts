@@ -1,13 +1,10 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import { mapGetters } from 'vuex'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { mapState } from 'vuex'
 
 @Component({
   computed: {
-    ...mapGetters(['filmId'])
+    ...mapState('movie', ['filmId'])
   }
 })
-export default class FilmRatingComponent extends Vue {
-
-}
-
+export default class FilmRatingComponent extends Vue {}

@@ -1,38 +1,43 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import { mapGetters } from 'vuex'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { mapState } from 'vuex'
 import NameWindow from '@/components/shared/name-window/name-window.component.vue'
-import { Film } from '@/components/interfaces/interfaces'
+import { Film, Films } from '@/components/interfaces/interfaces'
 
-const updateFilms = (films: Array<Film>, total: number, id: number) => {
+const updateFilms = (films: Films, id: number) => {
   const newValueMovies = {
-    data: films.filter((item) => item.id !== id),
-    totalAmount: total,
-  };
+    data: films.data.filter(item => item.id !== id),
+    totalAmount: films.totalAmount - 1
+  }
 
-  return newValueMovies;
-};
+  return newValueMovies
+}
 
 @Component({
   components: {
     NameWindow
   },
   computed: {
-    ...mapGetters(['films', 'totalFilms', 'filmsCriteria', 'totalFilmsCriteria', 'filmEdit'])
+    ...mapState('movie', ['movies', 'moviesByCriteria']),
+    ...mapState('window', ['filmEdit'])
   }
 })
 export default class DeleteWindowComponent extends Vue {
-  private films!: Array<Film>
-  private totalFilms!: number
-  private filmsCriteria!: Array<Film>
-  private totalFilmsCriteria!: number
+  private movies!: Films
+  private moviesByCriteria!: Films
   private filmEdit!: Film
 
   public handleDelete(): void {
-    const newMovies = updateFilms(this.films, this.totalFilms - 1, this.filmEdit.id)
-    const newMoviesByCriteria = updateFilms(this.filmsCriteria, this.totalFilmsCriteria - 1, this.filmEdit.id)
+    const newMovies = updateFilms(this.movies, this.filmEdit.id)
+    const newMoviesByCriteria = updateFilms(
+      this.moviesByCriteria,
+      this.filmEdit.id
+    )
 
-    this.$store.dispatch('DELETE_MOVIE', { id: this.filmEdit.id, newMovies, newMoviesByCriteria })
+    this.$store.dispatch('movie/DELETE_MOVIE', {
+      id: this.filmEdit.id,
+      newMovies,
+      newMoviesByCriteria
+    })
   }
 }
-

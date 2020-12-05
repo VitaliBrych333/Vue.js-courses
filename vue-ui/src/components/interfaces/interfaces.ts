@@ -4,36 +4,36 @@ export interface BToast {
 }
 
 export interface Film {
-  id: number,
-  title: string,
-  tagline: string,
-  vote_average: number,
-  vote_count: number,
-  release_date: string,
-  poster_path: string,
-  overview: string,
-  budget: number,
-  revenue: number,
-  genres: Array<string>,
+  id: number
+  title: string
+  tagline: string
+  vote_average: number
+  vote_count: number
+  release_date: string
+  poster_path: string
+  overview: string
+  budget: number
+  revenue: number
+  genres: Array<string>
   runtime: number
-};
+}
 
 export interface FilmForm {
-  id: number | null,
-  title: string | null,
-  date: string | null,
-  url: string | null,
-  overview: string | null,
+  id: number | null
+  title: string | null
+  date: string | null
+  url: string | null
+  overview: string | null
   runtime: number | null
-};
+}
 
 export interface Films {
-  data: Array<Film> | null,
-  totalAmount: number  
-};
+  data: Array<Film>
+  totalAmount: number
+}
 
 export interface Genres {
-  code: string,
+  code: string
   name: string
 }
 

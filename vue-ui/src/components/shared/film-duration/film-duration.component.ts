@@ -1,16 +1,14 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import { mapGetters } from 'vuex'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { mapState } from 'vuex'
 import getYear from '@/components/filters/filters'
 
 @Component({
   computed: {
-    ...mapGetters(['filmId'])
+    ...mapState('movie', ['filmId'])
   },
   filters: {
     getYear
   }
 })
-export default class FilmDurationComponent extends Vue {
-
-}
+export default class FilmDurationComponent extends Vue {}

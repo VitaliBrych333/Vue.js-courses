@@ -1,8 +1,5 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
 @Component({})
-export default class IncorrectComponent extends Vue {
-
-}
-
+export default class IncorrectComponent extends Vue {}

@@ -2,7 +2,6 @@
     color: #FFF;
     background: linear-gradient( rgba(102, 96, 96, 0.8), rgba(102, 96, 96, 0.8) ), url("../../../assets/header.jpg");
     padding: 15px 5%;
-    min-height: 360px;
 
     .search {
         display: flex;
@@ -35,7 +34,6 @@
             img {
                 height: 300px;
                 width: 230px;
-                margin-bottom: 15px;
             }
         }
     

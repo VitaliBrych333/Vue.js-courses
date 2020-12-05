@@ -1,33 +1,39 @@
-import Vue from 'vue';
+import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 import Multiselect from 'vue-multiselect'
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import selectOptions from '@/components/interfaces/select-options'
-import { FilmForm, Film, Genres, MovieRequest } from '@/components/interfaces/interfaces'
+import {
+  FilmForm,
+  Film,
+  Films,
+  Genres,
+  MovieRequest
+} from '@/components/interfaces/interfaces'
 
 const updateFilms = (films: Array<Film>, editFilm: MovieRequest) => {
-  const objMovies = JSON.parse(JSON.stringify(films));
+  const objMovies = JSON.parse(JSON.stringify(films))
 
   objMovies.forEach((item: MovieRequest) => {
     if (item.id === editFilm.id) {
       for (const key in item) {
         if (key !== 'id') {
-          item[key] = editFilm[key];
+          item[key] = editFilm[key]
         }
       }
     }
-  });
+  })
 
-  return objMovies;
-};
+  return objMovies
+}
 
 @Component({
   components: {
     Multiselect
   },
   computed: {
-    ...mapGetters(['films', 'totalFilms', 'filmsCriteria', 'totalFilmsCriteria'])
+    ...mapState('movie', ['movies', 'moviesByCriteria'])
   }
 })
 export default class FormComponent extends Vue {
@@ -35,21 +41,19 @@ export default class FormComponent extends Vue {
   @Prop(String) readonly btnLeft!: string
   @Prop(String) readonly btnRight!: string
 
-  private films!: Array<Film>
-  private totalFilms!: number
-  private filmsCriteria!: Array<Film>
-  private totalFilmsCriteria!: number
+  private movies!: Films
+  private moviesByCriteria!: Films
   private formValues!: FilmForm
   private value!: Array<Genres>
   private isTouched!: boolean
   private hasErrors!: boolean
 
   private get isInvalid(): boolean {
-    return this.isTouched && this.value.length === 0;
+    return this.isTouched && this.value.length === 0
   }
 
   public data(): object {
-    const { filmEdit } = this.$store.getters;
+    const { filmEdit } = this.$store.state.window
 
     return {
       formValues: {
@@ -60,17 +64,18 @@ export default class FormComponent extends Vue {
         overview: filmEdit?.overview,
         runtime: filmEdit?.runtime
       },
-      value: filmEdit?.genres.flatMap(
-        (item: string) => new Object({ code: item.toLowerCase(), name: item })
-      ) || [],
+      value:
+        filmEdit?.genres.flatMap(
+          (item: string) => new Object({ code: item.toLowerCase(), name: item })
+        ) || [],
       options: selectOptions,
       isTouched: false,
-      hasErrors: true,
+      hasErrors: true
     }
   }
 
   public handleReset(): void {
-    const { filmEdit } = this.$store.getters;
+    const { filmEdit } = this.$store.state.window
 
     this.formValues = {
       id: filmEdit?.id,
@@ -79,13 +84,13 @@ export default class FormComponent extends Vue {
       url: null,
       overview: null,
       runtime: null
-    };
+    }
 
-    this.value = [];
+    this.value = []
   }
 
   public handleSubmit(): void {
-    const { filmEdit } = this.$store.getters;
+    const { filmEdit } = this.$store.state.window
 
     const movie: MovieRequest = {
       title: this.formValues.title,
@@ -93,39 +98,39 @@ export default class FormComponent extends Vue {
       release_date: this.formValues.date,
       poster_path: this.formValues.url,
       overview: this.formValues.overview,
-      runtime: Number(this.formValues.runtime),
-    };
+      runtime: Number(this.formValues.runtime)
+    }
 
     if (this.btnRight === 'Submit') {
-      this.$store.dispatch('ADD_MOVIE', movie);
-  
+      this.$store.dispatch('movie/ADD_MOVIE', movie)
     } else if (this.btnRight === 'Save') {
-      movie.id = filmEdit?.id;
-      movie.vote_average = filmEdit?.vote_average;
+      movie.id = filmEdit?.id
+      movie.vote_average = filmEdit?.vote_average
 
-      const newMoviesByCriteria = updateFilms(this.filmsCriteria, movie);
-      const newMovies = updateFilms(this.films, movie);
+      const newMoviesByCriteria = updateFilms(this.moviesByCriteria.data, movie)
+      const newMovies = updateFilms(this.movies.data, movie)
 
-      this.$store.dispatch('UPDATE_MOVIE', { 
+      this.$store.dispatch('movie/UPDATE_MOVIE', {
         movie,
-        newMoviesByCriteria: { 
+        newMoviesByCriteria: {
           data: newMoviesByCriteria,
-          totalAmount: this.totalFilmsCriteria
+          totalAmount: this.moviesByCriteria.totalAmount
         },
         newMovies: {
           data: newMovies,
-          totalAmount: this.totalFilms
+          totalAmount: this.movies.totalAmount
         }
-      });
+      })
     }
   }
 
   private async performValidation(): Promise<void> {
-    this.hasErrors = await (this.$refs.form as Vue & { hasValidationErrors: () => boolean })
-                             ?.hasValidationErrors() || this.value.length === 0;
+    this.hasErrors =
+      (await (this.$refs.form as Vue & { hasValidationErrors: () => boolean })
+        ?.hasValidationErrors()) || this.value.length === 0
   }
 
   private onTouch(): void {
-    this.isTouched = true;
+    this.isTouched = true
   }
 }
