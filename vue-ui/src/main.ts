@@ -24,9 +24,9 @@ axios.interceptors.request.use(
 )
 
 axios.interceptors.response.use(
-  response => {
+  res => {
     store.commit('loader/LOADING', false)
-    return response
+    return res
   },
   err => {
     store.commit('loader/LOADING', false)
