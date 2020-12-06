@@ -190,8 +190,9 @@ const movie: Module<any, any> = {
       return axios
         .put('movies', JSON.stringify(payload.movie))
         .then(() => {
-          payload.movie.id === state.filmId.id ? commit('FETCH_FILMID_SUCCESS', payload.movie)
-                                               : undefined
+          payload.movie.id === state.filmId.id
+            ? commit('FETCH_FILMID_SUCCESS', payload.movie)
+            : undefined
           commit('FETCH_MOVIES_SUCCESS', {
             newMovies: payload.newMovies,
             newMoviesByCriteria: payload.newMoviesByCriteria

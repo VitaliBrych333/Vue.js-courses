@@ -12,6 +12,27 @@ Vue.config.productionTip = false
 
 axios.defaults.baseURL = 'http://localhost:4000'
 axios.defaults.headers['Content-Type'] = 'application/json'
+axios.interceptors.request.use(
+  config => {
+    store.commit('loader/LOADING', true)
+    return config
+  },
+  err => {
+    store.commit('loader/LOADING', false)
+    return Promise.reject(err)
+  }
+)
+
+axios.interceptors.response.use(
+  response => {
+    store.commit('loader/LOADING', false)
+    return response
+  },
+  err => {
+    store.commit('loader/LOADING', false)
+    return Promise.reject(err)
+  }
+)
 
 new Vue({
   router,

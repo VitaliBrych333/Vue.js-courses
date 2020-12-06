@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Loading />
     <router-view />
   </div>
 </template>
@@ -28,3 +29,13 @@
   }
 }
 </style>
+
+<script>
+import Loading from '@/components/shared/loading/loading.component.vue'
+
+export default {
+  components: {
+    Loading
+  }
+}
+</script>

@@ -126,8 +126,9 @@ export default class FormComponent extends Vue {
 
   private async performValidation(): Promise<void> {
     this.hasErrors =
-      (await (this.$refs.form as Vue & { hasValidationErrors: () => boolean })
-        ?.hasValidationErrors()) || this.value.length === 0
+      (await (this.$refs.form as Vue & {
+        hasValidationErrors: () => boolean
+      })?.hasValidationErrors()) || this.value.length === 0
   }
 
   private onTouch(): void {

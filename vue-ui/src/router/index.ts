@@ -19,13 +19,17 @@ const routes: Array<RouteConfig> = [
     path: '/movies/:id',
     name: 'Details',
     component: () =>
-      import(/* webpackChunkName: "Details" */ '@/components/main/details/details.component.vue')
+      import(
+        /* webpackChunkName: "Details" */ '@/components/main/details/details.component.vue'
+      )
   },
   {
     path: '*',
     name: '404',
     component: () =>
-      import(/* webpackChunkName: "Inccorect" */ '@/components/main/incorrect/incorrect.component.vue')
+      import(
+        /* webpackChunkName: "Inccorect" */ '@/components/main/incorrect/incorrect.component.vue'
+      )
   }
 ]
 
