@@ -6,8 +6,7 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('loader.module', () => {
-  let store: any
-  store = new Vuex.Store({
+  const store = new Vuex.Store({
     modules: {
       loader
     }
@@ -15,7 +14,9 @@ describe('loader.module', () => {
 
   it('should equal to value after LOADING', () => {
     const valueState = { isLoading: true }
+
     store.commit('loader/LOADING', true)
+
     expect(store.state.loader).toEqual(valueState)
   })
 })

@@ -7,19 +7,20 @@ localVue.use(Vuex)
 
 describe('movie.module', () => {
   let store: any
-  let state = {
+  const state = {
     filmEdit: null,
     isShowEditPage: false,
     isShowDeletePage: false,
     isShowAddPage: false
   }
 
-  beforeEach(() =>
-    store = new Vuex.Store({
+  beforeEach(
+    () =>
+      (store = new Vuex.Store({
         modules: {
           window
         }
-    })
+      }))
   )
 
   it('should equal to value after SET_EDIT_FILM when actionType is Edit', () => {
@@ -35,16 +36,18 @@ describe('movie.module', () => {
     const valueState = Object.assign(state, newValue)
 
     store.commit('window/SET_EDIT_FILM', payload)
+
     expect(store.state.window).toEqual(valueState)
   })
 
   it('should equal to value after SET_EDIT_FILM when actionType is empty', () => {
-     const newValue = {
+    const newValue = {
       filmEdit: {}
     }
     const valueState = Object.assign(state, newValue)
 
     store.commit('window/SET_EDIT_FILM', newValue)
+
     expect(store.state.window).toEqual(valueState)
   })
 
@@ -55,6 +58,7 @@ describe('movie.module', () => {
     const valueState = Object.assign(state, newValue)
 
     store.commit('window/SHOW_EDIT_PAGE', true)
+
     expect(store.state.window).toEqual(valueState)
   })
 
@@ -65,6 +69,7 @@ describe('movie.module', () => {
     const valueState = Object.assign(state, newValue)
 
     store.commit('window/SHOW_DELETE_PAGE', true)
+
     expect(store.state.window).toEqual(valueState)
   })
 
@@ -76,6 +81,7 @@ describe('movie.module', () => {
     const valueState = Object.assign(state, newValue)
 
     store.commit('window/SHOW_ADD_PAGE', true)
+
     expect(store.state.window).toEqual(valueState)
   })
 })

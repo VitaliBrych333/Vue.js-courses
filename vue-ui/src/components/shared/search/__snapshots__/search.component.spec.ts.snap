@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search.vue should render correctly 1`] = `"Find your movie  Search"`;

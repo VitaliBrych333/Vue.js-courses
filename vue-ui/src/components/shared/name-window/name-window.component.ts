@@ -7,7 +7,6 @@ export default class NameWindowComponent extends Vue {
   @Prop(String) readonly name!: string
 
   public onClick(): void {
-    console.log('999999999999', this.name)
     switch (this.name) {
       case 'Add movie':
         this.$store.commit('window/SHOW_ADD_PAGE', false)

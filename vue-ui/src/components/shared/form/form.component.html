@@ -51,6 +51,6 @@
                     validation="matches:/^\d+$/" />
     <div class="buttons">
         <FormulateInput type="button" :label="btnLeft" @click="handleReset" />
-        <FormulateInput type="submit" :label="btnRight" :disabled="hasErrors" />
+        <FormulateInput type="submit" :label="btnRight" @click="handleSubmit" :disabled="hasErrors" />
     </div>
 </FormulateForm>

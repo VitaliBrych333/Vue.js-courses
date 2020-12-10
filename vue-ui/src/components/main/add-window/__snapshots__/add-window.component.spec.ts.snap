@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddWindow.vue should render correctly after changing route 1`] = `
+"Add movie    Title      Release date      Movie url      Genre        
+          Select genre
+           Adventure Action Animation Comedy Crime Drama Horror History Fantasy Family Mystery Music Romance Science Fiction Thriller War  No elements found. Consider changing the search query. List is empty.  Must have at least one value Overview      Runtime        Reset      Submit"
+`;

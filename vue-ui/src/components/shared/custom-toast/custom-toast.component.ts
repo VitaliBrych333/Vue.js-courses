@@ -10,6 +10,10 @@ export default class CustomToastComponent extends Vue {
   private $bvToast!: BToast
   private toastId!: string
 
+  public created(): void {
+    this.toastId = this.info.id.toString()
+  }
+
   public onClick(event: Event): void {
     const value = (event.target as HTMLButtonElement).textContent
     if (value) {
@@ -19,9 +23,5 @@ export default class CustomToastComponent extends Vue {
         actionType: value
       })
     }
-  }
-
-  private created(): void {
-    this.toastId = this.info.id.toString()
   }
 }
