@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import window from '@/store/modules/window'
+import windowMessage from '@/store/modules/windowMessage'
 import CustomToast from './custom-toast.component.vue'
 
 const localVue = createLocalVue()
@@ -27,7 +27,7 @@ describe('CustomToast.vue', () => {
     store = new Vuex.Store({
       state: {},
       modules: {
-        window
+        windowMessage
       }
     })
   })

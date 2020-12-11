@@ -53,7 +53,7 @@ export default class FormComponent extends Vue {
   }
 
   public data(): object {
-    const { filmEdit } = this.$store.state.window
+    const { filmEdit } = this.$store.state.windowMessage
 
     return {
       formValues: {
@@ -75,7 +75,7 @@ export default class FormComponent extends Vue {
   }
 
   public handleReset(): void {
-    const { filmEdit } = this.$store.state.window
+    const { filmEdit } = this.$store.state.windowMessage
 
     this.formValues = {
       id: filmEdit?.id,
@@ -90,7 +90,7 @@ export default class FormComponent extends Vue {
   }
 
   public handleSubmit(): void {
-    const { filmEdit } = this.$store.state.window
+    const { filmEdit } = this.$store.state.windowMessage
 
     const movie: MovieRequest = {
       title: this.formValues.title,

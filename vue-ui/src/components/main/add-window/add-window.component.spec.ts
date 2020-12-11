@@ -13,7 +13,7 @@ describe('AddWindow.vue', () => {
     () =>
       (store = new Vuex.Store({
         state: {
-          window: {
+          windowMessage: {
             id: 1,
             title: 'test',
             date: '2020-01-01',

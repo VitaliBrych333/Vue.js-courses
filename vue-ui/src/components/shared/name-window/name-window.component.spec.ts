@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import window from '@/store/modules/window'
+import windowMessage from '@/store/modules/windowMessage'
 import NameWindow from './name-window.component.vue'
 
 const localVue = createLocalVue()
@@ -13,7 +13,7 @@ describe('NameWindow.vue', () => {
     store = new Vuex.Store({
       state: {},
       modules: {
-        window
+        windowMessage
       }
     })
   })

@@ -1,6 +1,6 @@
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import window from './window'
+import windowMessage from './windowMessage'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -18,7 +18,7 @@ describe('movie.module', () => {
     () =>
       (store = new Vuex.Store({
         modules: {
-          window
+          windowMessage
         }
       }))
   )
@@ -35,9 +35,9 @@ describe('movie.module', () => {
     }
     const valueState = Object.assign(state, newValue)
 
-    store.commit('window/SET_EDIT_FILM', payload)
+    store.commit('windowMessage/SET_EDIT_FILM', payload)
 
-    expect(store.state.window).toEqual(valueState)
+    expect(store.state.windowMessage).toEqual(valueState)
   })
 
   it('should equal to value after SET_EDIT_FILM when actionType is empty', () => {
@@ -46,9 +46,9 @@ describe('movie.module', () => {
     }
     const valueState = Object.assign(state, newValue)
 
-    store.commit('window/SET_EDIT_FILM', newValue)
+    store.commit('windowMessage/SET_EDIT_FILM', newValue)
 
-    expect(store.state.window).toEqual(valueState)
+    expect(store.state.windowMessage).toEqual(valueState)
   })
 
   it('should equal to value after SHOW_EDIT_PAGE', () => {
@@ -57,9 +57,9 @@ describe('movie.module', () => {
     }
     const valueState = Object.assign(state, newValue)
 
-    store.commit('window/SHOW_EDIT_PAGE', true)
+    store.commit('windowMessage/SHOW_EDIT_PAGE', true)
 
-    expect(store.state.window).toEqual(valueState)
+    expect(store.state.windowMessage).toEqual(valueState)
   })
 
   it('should equal to value after SHOW_DELETE_PAGE', () => {
@@ -68,9 +68,9 @@ describe('movie.module', () => {
     }
     const valueState = Object.assign(state, newValue)
 
-    store.commit('window/SHOW_DELETE_PAGE', true)
+    store.commit('windowMessage/SHOW_DELETE_PAGE', true)
 
-    expect(store.state.window).toEqual(valueState)
+    expect(store.state.windowMessage).toEqual(valueState)
   })
 
   it('should equal to value after SHOW_ADD_PAGE', () => {
@@ -80,8 +80,8 @@ describe('movie.module', () => {
     }
     const valueState = Object.assign(state, newValue)
 
-    store.commit('window/SHOW_ADD_PAGE', true)
+    store.commit('windowMessage/SHOW_ADD_PAGE', true)
 
-    expect(store.state.window).toEqual(valueState)
+    expect(store.state.windowMessage).toEqual(valueState)
   })
 })

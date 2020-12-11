@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import movie from './modules/movie'
-import window from './modules/window'
+import windowMessage from './modules/windowMessage'
 import loader from './modules/loader'
 
 Vue.use(Vuex)
@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     movie,
-    window,
+    windowMessage,
     loader
   }
 })

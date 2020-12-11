@@ -24,7 +24,7 @@ import { Films } from '@/components/interfaces/interfaces'
       'sortBy',
       'genre'
     ]),
-    ...mapState('window', ['isShowEditPage', 'isShowDeletePage'])
+    ...mapState('windowMessage', ['isShowEditPage', 'isShowDeletePage'])
   }
 })
 export default class SearchResultsComponent extends Vue {

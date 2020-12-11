@@ -12,7 +12,7 @@ import getYear from '@/components/filters/filters'
   },
   computed: {
     ...mapState('movie', ['sortBy']),
-    ...mapState('window', ['filmEdit'])
+    ...mapState('windowMessage', ['filmEdit'])
   },
   filters: {
     getYear
@@ -50,7 +50,7 @@ export default class CardComponent extends Vue {
   }
 
   public onClick(): void {
-    this.$store.commit('window/SET_EDIT_FILM', { filmEdit: this.info })
+    this.$store.commit('windowMessage/SET_EDIT_FILM', { filmEdit: this.info })
     this.$bvToast.show(this.info.id.toString())
     this.hideDots()
   }

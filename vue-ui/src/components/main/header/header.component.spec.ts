@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import window from '@/store/modules/window'
+import windowMessage from '@/store/modules/windowMessage'
 import movie from '@/store/modules/movie'
 import Header from './header.component.vue'
 
@@ -65,7 +65,7 @@ describe('Search.vue', () => {
     store = new Vuex.Store({
       state: {},
       modules: {
-        window,
+        windowMessage,
         movie
       }
     })
@@ -90,7 +90,7 @@ describe('Search.vue', () => {
   it('should render button with text is "+ Add movie"', async () => {
     const button = wrapper.findAll('button').at(0)
 
-    store.commit('window/SET_EDIT_FILM', { filmEdit })
+    store.commit('windowMessage/SET_EDIT_FILM', { filmEdit })
     button.trigger('click')
 
     expect(button.text()).toEqual('+ Add movie')

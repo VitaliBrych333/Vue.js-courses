@@ -18,7 +18,7 @@ export default class CustomToastComponent extends Vue {
     const value = (event.target as HTMLButtonElement).textContent
     if (value) {
       this.$bvToast.hide(this.toastId)
-      this.$store.commit('window/SET_EDIT_FILM', {
+      this.$store.commit('windowMessage/SET_EDIT_FILM', {
         filmEdit: this.info,
         actionType: value
       })

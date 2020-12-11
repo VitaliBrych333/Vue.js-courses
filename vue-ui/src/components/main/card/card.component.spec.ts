@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import movie from '@/store/modules/movie'
-import window from '@/store/modules/window'
+import windowMessage from '@/store/modules/windowMessage'
 import Card from './card.component.vue'
 
 const localVue = createLocalVue()
@@ -30,7 +30,7 @@ describe('Card.vue', () => {
         state: {},
         modules: {
           movie,
-          window
+          windowMessage
         }
       }))
   )

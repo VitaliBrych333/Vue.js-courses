@@ -1,5 +1,4 @@
 <FormulateForm v-model="formValues"
-               @submit="handleSubmit"
                @input="performValidation"
                ref="form">
     <FormulateInput type="number"
@@ -51,6 +50,6 @@
                     validation="matches:/^\d+$/" />
     <div class="buttons">
         <FormulateInput type="button" :label="btnLeft" @click="handleReset" />
-        <FormulateInput type="submit" :label="btnRight" @click="handleSubmit" :disabled="hasErrors" />
+        <FormulateInput type="button" :label="btnRight" @click="handleSubmit" :disabled="hasErrors" />
     </div>
 </FormulateForm>

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteWindow.vue should render correctly 1`] = `"Delete movie Are you sure you want to delete this movie? Confirm"`;

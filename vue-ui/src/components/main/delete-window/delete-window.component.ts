@@ -19,7 +19,7 @@ const updateFilms = (films: Films, id: number) => {
   },
   computed: {
     ...mapState('movie', ['movies', 'moviesByCriteria']),
-    ...mapState('window', ['filmEdit'])
+    ...mapState('windowMessage', ['filmEdit'])
   }
 })
 export default class DeleteWindowComponent extends Vue {

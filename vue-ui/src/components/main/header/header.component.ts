@@ -14,7 +14,7 @@ import { BToast, Film } from '@/components/interfaces/interfaces'
     AddWindow
   },
   computed: {
-    ...mapState('window', ['filmEdit', 'isShowAddPage'])
+    ...mapState('windowMessage', ['filmEdit', 'isShowAddPage'])
   }
 })
 export default class HeaderComponent extends Vue {
@@ -28,6 +28,6 @@ export default class HeaderComponent extends Vue {
     if (prevIdEdit) {
       this.$bvToast.hide(prevIdEdit)
     }
-    this.$store.commit('window/SHOW_ADD_PAGE', true)
+    this.$store.commit('windowMessage/SHOW_ADD_PAGE', true)
   }
 }

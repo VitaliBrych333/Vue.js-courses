@@ -12,11 +12,12 @@ export default class ObserverComponent extends Vue {
   }
 
   public mounted(): void {
-    this.observer = new IntersectionObserver(([entry]) => {
+    const callback = ([entry]: Array<IntersectionObserverEntry>) => {
       if (entry && entry.isIntersecting) {
         this.$emit('intersect')
       }
-    })
+    }
+    this.observer = new IntersectionObserver(callback)
     this.observer.observe(this.$el)
   }
 

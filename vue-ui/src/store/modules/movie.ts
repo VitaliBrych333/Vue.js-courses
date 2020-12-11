@@ -174,7 +174,7 @@ const movie: Module<any, any> = {
             newMovies: payload.newMovies,
             newMoviesByCriteria: payload.newMoviesByCriteria
           })
-          commit('window/SHOW_DELETE_PAGE', false, { root: true })
+          commit('windowMessage/SHOW_DELETE_PAGE', false, { root: true })
         })
         .catch(err => err)
     },
@@ -182,7 +182,7 @@ const movie: Module<any, any> = {
       return axios
         .post('movies', JSON.stringify(movie))
         .then(() => {
-          commit('window/SHOW_ADD_PAGE', false, { root: true })
+          commit('windowMessage/SHOW_ADD_PAGE', false, { root: true })
         })
         .catch(err => err)
     },
@@ -197,7 +197,7 @@ const movie: Module<any, any> = {
             newMovies: payload.newMovies,
             newMoviesByCriteria: payload.newMoviesByCriteria
           })
-          commit('window/SHOW_EDIT_PAGE', false, { root: true })
+          commit('windowMessage/SHOW_EDIT_PAGE', false, { root: true })
         })
         .catch(err => err)
     },

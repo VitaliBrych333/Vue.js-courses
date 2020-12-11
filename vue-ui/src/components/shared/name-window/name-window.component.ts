@@ -9,15 +9,15 @@ export default class NameWindowComponent extends Vue {
   public onClick(): void {
     switch (this.name) {
       case 'Add movie':
-        this.$store.commit('window/SHOW_ADD_PAGE', false)
+        this.$store.commit('windowMessage/SHOW_ADD_PAGE', false)
         break
 
       case 'Edit movie':
-        this.$store.commit('window/SHOW_EDIT_PAGE', false)
+        this.$store.commit('windowMessage/SHOW_EDIT_PAGE', false)
         break
 
       case 'Delete movie':
-        this.$store.commit('window/SHOW_DELETE_PAGE', false)
+        this.$store.commit('windowMessage/SHOW_DELETE_PAGE', false)
         break
 
       default:

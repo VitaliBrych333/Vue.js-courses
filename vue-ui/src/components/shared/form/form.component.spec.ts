@@ -22,7 +22,7 @@ describe('AddWindow.vue', () => {
     () =>
       (store = new Vuex.Store({
         state: {
-          window: {
+          windowMessage: {
             filmEdit: filmEdit
           }
         },
@@ -139,7 +139,7 @@ describe('AddWindow.vue', () => {
   it('should set buttonLeft in Submit', () => {
     store = new Vuex.Store({
       state: {
-        window: {}
+        windowMessage: {}
       },
       modules: {
         movie

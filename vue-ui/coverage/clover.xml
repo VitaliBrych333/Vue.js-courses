@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1607571793637" clover="3.2.0">
-  <project timestamp="1607571793637" name="All files">
-    <metrics statements="286" coveredstatements="285" conditionals="66" coveredconditionals="65" methods="71" coveredmethods="70" elements="423" coveredelements="420" complexity="0" loc="286" ncloc="286" packages="16" files="18" classes="18"/>
+<coverage generated="1607658463119" clover="3.2.0">
+  <project timestamp="1607658463119" name="All files">
+    <metrics statements="344" coveredstatements="341" conditionals="85" coveredconditionals="80" methods="80" coveredmethods="78" elements="509" coveredelements="499" complexity="0" loc="344" ncloc="344" packages="21" files="23" classes="23"/>
     <package name="components.filters">
       <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="filters.ts" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\filters\filters.ts">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="2" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="17" type="cond" truecount="2" falsecount="0"/>
         <line num="3" count="1" type="stmt"/>
       </file>
     </package>
@@ -14,8 +14,8 @@
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="select-options.ts" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\interfaces\select-options.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
       </file>
     </package>
     <package name="components.main.add-window">
@@ -35,16 +35,16 @@
       <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
       <file name="card.component.vue" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\main\card\card.component.vue">
         <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
@@ -55,8 +55,41 @@
         <line num="33" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.main.delete-window">
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="delete-window.component.vue" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\main\delete-window\delete-window.component.vue">
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.main.edit-window">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="edit-window.component.vue" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\main\edit-window\edit-window.component.vue">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.main.header">
@@ -113,18 +146,18 @@
       <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="custom-toast.component.vue" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\shared\custom-toast\custom-toast.component.vue">
         <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="14" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
         <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
       </file>
     </package>
     <package name="components.shared.film-details">
@@ -176,14 +209,14 @@
       <metrics statements="40" coveredstatements="39" conditionals="32" coveredconditionals="31" methods="10" coveredmethods="9"/>
       <file name="form.component.vue" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\shared\form\form.component.vue">
         <metrics statements="40" coveredstatements="39" conditionals="32" coveredconditionals="31" methods="10" coveredmethods="9"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
         <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
@@ -191,7 +224,7 @@
         <line num="13" count="12" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="11" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
         <line num="23" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="26" count="7" type="stmt"/>
         <line num="27" count="7" type="stmt"/>
@@ -212,10 +245,10 @@
         <line num="72" count="1" type="stmt"/>
         <line num="86" count="33" type="cond" truecount="2" falsecount="0"/>
         <line num="90" count="0" type="stmt"/>
-        <line num="93" count="3" type="stmt"/>
-        <line num="96" count="3" type="stmt"/>
-        <line num="99" count="3" type="stmt"/>
-        <line num="102" count="3" type="stmt"/>
+        <line num="93" count="4" type="stmt"/>
+        <line num="96" count="4" type="stmt"/>
+        <line num="99" count="4" type="stmt"/>
+        <line num="102" count="4" type="stmt"/>
       </file>
     </package>
     <package name="components.shared.header-nav">
@@ -240,11 +273,11 @@
       <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <file name="name-window.component.vue" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\shared\name-window\name-window.component.vue">
         <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
@@ -253,8 +286,37 @@
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="25" count="3" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.shared.not-found">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="not-found.component.vue" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\shared\not-found\not-found.component.vue">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.shared.observer">
+      <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="3"/>
+      <file name="observer.component.vue" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\shared\observer\observer.component.vue">
+        <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.shared.search">
@@ -275,33 +337,59 @@
         <line num="29" count="2" type="stmt"/>
       </file>
     </package>
+    <package name="components.shared.search-results">
+      <metrics statements="20" coveredstatements="20" conditionals="15" coveredconditionals="15" methods="2" coveredmethods="2"/>
+      <file name="search-results.component.vue" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\components\shared\search-results\search-results.component.vue">
+        <metrics statements="20" coveredstatements="20" conditionals="15" coveredconditionals="15" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="6" falsecount="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="4" type="cond" truecount="5" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="store.modules">
       <metrics statements="103" coveredstatements="103" conditionals="16" coveredconditionals="16" methods="41" coveredmethods="41"/>
       <file name="loader.ts" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\store\modules\loader.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
       </file>
       <file name="movie.ts" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\store\modules\movie.ts">
         <metrics statements="89" coveredstatements="89" conditionals="14" coveredconditionals="14" methods="36" coveredmethods="36"/>
-        <line num="1" count="9" type="stmt"/>
-        <line num="5" count="9" type="stmt"/>
-        <line num="6" count="6" type="stmt"/>
-        <line num="8" count="6" type="stmt"/>
+        <line num="1" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="25" count="6" type="stmt"/>
-        <line num="28" count="9" type="stmt"/>
+        <line num="25" count="7" type="stmt"/>
+        <line num="28" count="11" type="stmt"/>
         <line num="45" count="4" type="stmt"/>
         <line num="46" count="4" type="stmt"/>
-        <line num="49" count="9" type="stmt"/>
-        <line num="50" count="9" type="stmt"/>
+        <line num="49" count="12" type="stmt"/>
+        <line num="50" count="12" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
@@ -330,14 +418,14 @@
         <line num="106" count="3" type="stmt"/>
         <line num="108" count="3" type="stmt"/>
         <line num="114" count="5" type="stmt"/>
-        <line num="119" count="3" type="stmt"/>
-        <line num="121" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="122" count="1" type="stmt"/>
-        <line num="124" count="2" type="stmt"/>
-        <line num="125" count="1" type="stmt"/>
+        <line num="119" count="4" type="stmt"/>
+        <line num="121" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="122" count="2" type="stmt"/>
+        <line num="124" count="4" type="stmt"/>
+        <line num="125" count="2" type="stmt"/>
         <line num="127" count="2" type="stmt"/>
-        <line num="130" count="3" type="stmt"/>
-        <line num="134" count="3" type="stmt"/>
+        <line num="130" count="4" type="stmt"/>
+        <line num="134" count="4" type="stmt"/>
         <line num="140" count="3" type="stmt"/>
         <line num="141" count="3" type="stmt"/>
         <line num="142" count="3" type="stmt"/>
@@ -350,7 +438,7 @@
         <line num="159" count="2" type="stmt"/>
         <line num="162" count="1" type="stmt"/>
         <line num="167" count="1" type="stmt"/>
-        <line num="170" count="2" type="stmt"/>
+        <line num="170" count="3" type="stmt"/>
         <line num="173" count="1" type="stmt"/>
         <line num="177" count="1" type="stmt"/>
         <line num="179" count="1" type="stmt"/>
@@ -373,21 +461,21 @@
         <line num="222" count="4" type="stmt"/>
         <line num="225" count="1" type="stmt"/>
         <line num="227" count="1" type="stmt"/>
-        <line num="232" count="9" type="stmt"/>
+        <line num="232" count="11" type="stmt"/>
       </file>
-      <file name="window.ts" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\store\modules\window.ts">
+      <file name="windowMessage.ts" path="C:\Users\Vitali_Brych\Desktop\Vue.js-courses\vue-ui\src\store\modules\windowMessage.ts">
         <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="3" count="5" type="stmt"/>
-        <line num="15" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="15" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
         <line num="29" count="4" type="stmt"/>
         <line num="30" count="4" type="stmt"/>
-        <line num="35" count="5" type="stmt"/>
+        <line num="35" count="7" type="stmt"/>
       </file>
     </package>
   </project>

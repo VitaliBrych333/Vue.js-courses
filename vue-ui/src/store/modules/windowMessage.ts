@@ -1,6 +1,6 @@
 import { Module } from 'vuex'
 
-const window: Module<any, any> = {
+const windowMessage: Module<any, any> = {
   namespaced: true,
 
   state: {
@@ -32,4 +32,4 @@ const window: Module<any, any> = {
   }
 }
 
-export default window
+export default windowMessage
