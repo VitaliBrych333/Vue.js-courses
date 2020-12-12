@@ -20,11 +20,11 @@ export default class SearchComponent extends Vue {
     }
   }
 
-  private validate(): boolean {
+  public validate(): boolean {
     return this.form.value.trim() === ''
   }
 
-  private onSubmit(event: Event): void {
+  public onSubmit(event: Event): void {
     event.preventDefault()
     this.$store.dispatch('movie/FETCH_MOVIES', {
       sortBy: this.sortBy,

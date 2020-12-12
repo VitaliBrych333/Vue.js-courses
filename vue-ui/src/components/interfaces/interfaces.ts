@@ -1,4 +1,4 @@
-export interface BToast {
+export interface InterfaceToast {
   show: (id: string) => void
   hide: (id: string) => void
 }

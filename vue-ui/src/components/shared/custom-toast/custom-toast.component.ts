@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
-import { BToast, Film } from '@/components/interfaces/interfaces'
+import { InterfaceToast, Film } from '@/components/interfaces/interfaces'
 
 @Component({})
 export default class CustomToastComponent extends Vue {
   @Prop(Object) readonly info!: Film
 
-  private $bvToast!: BToast
+  private $bvToast!: InterfaceToast
   private toastId!: string
 
   public created(): void {

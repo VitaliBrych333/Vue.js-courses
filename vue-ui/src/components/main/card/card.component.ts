@@ -3,7 +3,7 @@ import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 import { mapState } from 'vuex'
 import CustomToast from '@/components/shared/custom-toast/custom-toast.component.vue'
-import { BToast, Film } from '@/components/interfaces/interfaces'
+import { InterfaceToast, Film } from '@/components/interfaces/interfaces'
 import getYear from '@/components/filters/filters'
 
 @Component({
@@ -21,7 +21,7 @@ import getYear from '@/components/filters/filters'
 export default class CardComponent extends Vue {
   @Prop(Object) readonly info!: Film
 
-  private $bvToast!: BToast
+  private $bvToast!: InterfaceToast
   private filmEdit!: Film
   private sortBy!: string
   private show = false
